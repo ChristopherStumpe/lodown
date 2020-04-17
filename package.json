@@ -1,0 +1,29 @@
+{
+  "name": "lodown-christopherstumpe",
+  "version": "1.0.1",
+  "description": "lodown library",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "istanbul cover _mocha -- test/ -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChristopherStumpe/lodown.git"
+  },
+  "author": "Christopher Stumpe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChristopherStumpe/lodown/issues"
+  },
+  "homepage": "https://github.com/ChristopherStumpe/lodown#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "i": "^0.3.6",
+    "istanbul": "^0.4.5",
+    "mocha": "^7.1.1",
+    "sinon": "^9.0.2"
+  }
+}

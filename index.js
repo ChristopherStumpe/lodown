@@ -41,6 +41,7 @@ module.exports.identity = identity;
  
 /**
  * first: Takes two parameters, a value and a number and returns a paired down array with nust the first *input number* of items in the array.
+ *  edge cases include: negative number, or non-array as first input. Both will return an empty array. 
  * 
  * @param {Array} array: The array to grab values from.
  * @param {Number} number: the number of values to grab from the front of the array.
@@ -65,6 +66,7 @@ module.exports.first = first;
 
 /**
  * last: Takes two parameters, an array and a number and returns the last *numbers* of the array.
+ *  edge cases include: negative number, or non-array as first input. Both will return an empty array. 
  * 
  * @param {Array} array: The array to grab values from.
  * @param {Number} number: the number of values to gram from the end of the array.
@@ -96,6 +98,7 @@ module.exports.last = last;
 
 /**
  * indexOf: Takes two parameters, an array and a value and returns the index of *array* that is the first occurrance of *value*.
+ * If the value is not found the function will return -1.
  * 
  * @param {Array} array: The array to grab values from.
  * @param {Value} value: the value to search for in the array.
@@ -125,6 +128,7 @@ module.exports.indexOf = indexOf;
  function contains(array, value) {
      return array.includes(value) ? true : false;
 }
+module.exports.contains = contains;
 
 /**
  * each: Designed to loop over a collection, Array or Object, and applies the 
@@ -168,7 +172,7 @@ module.exports.unique = unique;
 
 
 /**
- * filter: loops through an array, passing each value through the given function, and returns a new array of the values that returned true.
+ * filter: loops through an array, passing each value, index, and the entire collection through the given function, and returns a new array of the values that returned true.
  * 
  * @param {Array} array: the array to loop through.
  * @param {Function} funky: the function to pass the values into and grab the true results from. Should output a boolean value.
@@ -191,7 +195,7 @@ module.exports.filter = filter;
 
 
 /** 
- * reject: loops through an array, passing each value through the given function, and returns a new array consisting of the values that returned false.
+ * reject: loops through an array, passing each  value, index, and the entire collection through the given function, and returns a new array consisting of the values that returned false.
  * 
  * @param {Array} array: the array to loop through.
  * @param {Function} funky: the function to pass the values into and grab the results from. Should output a boolean value.
@@ -213,7 +217,7 @@ function reject(array, funky) {
 module.exports.reject = reject;
 
 /** 
- * partition: loops through an array, passing each value through the given function, and returns a new array consisting of two
+ * partition: loops through an array, passing each  value, index, and the entire collection through the given function, and returns a new array consisting of two
  * sub arrays, the first with all truthy results, and the second with all falsy results.
  * 
  * @param {Array} array: the array to loop through.
@@ -268,7 +272,7 @@ module.exports.map = map;
  * pluck: loop through an array of objects and return the value of the given property for every element in array.
  * 
  * @param {Array} array: the array to loop through.
- * @param {Property} prop: the property to search for.
+ * @param {String} prop: the property to search for.
  * 
  * @return {Array}: This new array will contain the value of the given property for every element in the array.
  */
@@ -282,7 +286,7 @@ function pluck(array, prop) {
 module.exports.pluck = pluck;
 
 /** 
- * every: call the given function for every element in the collection. If all results are true return true, otherwise return false.
+ * every: call the given function for every element in the collection. If all results are true return true, otherwise return false. If no function is provided it defaults to true.
  * 
  * @param {Collection} collection: the array to loop through.
  * @param {Function} funky: the function to apply to the collection. Should return booleans.
@@ -321,7 +325,7 @@ function every(collection, funky) {
 module.exports.every = every;
 
 /**
- * some: Call the given function for every element in the collection. Return true if at least one result is true, if false for every, return false.
+ * some: Call the given function for every element in the collection. Return true if at least one result is true, if false for every, return false. If no function is provided it defaults to true.
  * 
  * @param {Collection} collection: The collection to loop through.
  * @param {Function} funky: the function to apply to the elements of the collection. Should return a boolean.
@@ -355,7 +359,7 @@ module.exports.some = some;
  * 
  * @param {Array} array: The array to reduce.
  * @param {Function} funky: the function to use to compile the single value.
- * @param {Seed} seed: the seed value to start the compiling.
+ * @param {Value} seed: the seed value to start the compiling.
  * 
  * @return {Value}: The final value returned from the function representing the entirety of the compiled values.
  */

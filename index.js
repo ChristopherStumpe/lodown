@@ -286,7 +286,7 @@ function pluck(array, prop) {
 module.exports.pluck = pluck;
 
 /** 
- * every: call the given function for every element in the collection. If all results are true return true, otherwise return false. If no function is provided it defaults to true.
+ * every: call the given function for every element in the collection. If all results are true return true, otherwise return false. If no function is provided it defaults to false.
  * 
  * @param {Collection} collection: the array to loop through.
  * @param {Function} funky: the function to apply to the collection. Should return booleans.
@@ -325,7 +325,7 @@ function every(collection, funky) {
 module.exports.every = every;
 
 /**
- * some: Call the given function for every element in the collection. Return true if at least one result is true, if false for every, return false. If no function is provided it defaults to true.
+ * some: Call the given function for every element in the collection. Return true if at least one result is true, if false for every, return false. If no function is provided it defaults to false.
  * 
  * @param {Collection} collection: The collection to loop through.
  * @param {Function} funky: the function to apply to the elements of the collection. Should return a boolean.
